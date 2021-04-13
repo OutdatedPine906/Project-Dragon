@@ -1,4 +1,8 @@
 # Project-Dragon
-"My Main Unity Game"
+***
+### What Is Project Dragon?
+Project Dragon is a 2D, story-focused, Metroidvania currently being worked on in the Unity game engine.
 
--ender titan
+***
+### Who are we?
+Us, Peak Of Extreme Studios are a group of people with the goal of working mainly on Project Dragon
