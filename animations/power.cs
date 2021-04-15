@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class crystal_get : MonoBehaviour
+public class power : MonoBehaviour
 {
     public GameObject player;
     public GameObject self;
@@ -10,15 +10,14 @@ public class crystal_get : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        player.GetComponent<character_variables>().crystals += amount;
         player.GetComponent<transition_manager>().names.Add(self.name);
+        player.GetComponent<character_variables>().power += amount;
         self.active = false;
     }
 
     public void Awake()
     {
         player = GameObject.FindGameObjectWithTag("player");
+        amount = Random.RandomRange(1, 3);
     }
-
-
 }

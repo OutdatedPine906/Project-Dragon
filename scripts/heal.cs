@@ -10,6 +10,7 @@ public class heal : MonoBehaviour
      void OnTriggerEnter2D(Collider2D collision)
     {
         player = GameObject.FindGameObjectWithTag("player");
+        player.GetComponent<transition_manager>().names.Add(self.name);
         player.GetComponent<player_interactivity>().ManageHealth(false, true, Random.RandomRange(2, 3));
         self.active = false;
     }

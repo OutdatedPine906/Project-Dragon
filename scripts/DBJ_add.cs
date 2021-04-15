@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,16 +10,20 @@ public class DBJ_add : MonoBehaviour
     public GameObject particle;
     public bool used = false;
     public GameObject upgrade;
+    public GameObject self;
+    public static Dictionary<string, bool> dict = new Dictionary<string, bool> { ["up1"] = false, ["up2"] = false };
+    public string ID;
 
     void OnTriggerEnter2D()
     {
         character = GameObject.FindGameObjectWithTag("player");
         upgrade = GameObject.FindGameObjectWithTag("panel");
 
-        if (used == false)
+        if (dict[ID] == false)
         {
+
+            dict[ID] = true;
             character.GetComponent<player_movement>().add();
-            character.GetComponent<transition_manager>().used.Add(upgrade);
             colorGO.color = disabledcol;
             particle.active = false;
             used = true;
@@ -31,10 +35,12 @@ public class DBJ_add : MonoBehaviour
 
     public void Update()
     {
-        if(used == true)
+        if(dict[ID] == true)
         {
             colorGO.color = disabledcol;
             particle.active = false;
         }
     }
+
+    
 }
