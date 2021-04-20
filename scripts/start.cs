@@ -1,17 +1,17 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class start : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject Player;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        player = GameObject.FindGameObjectWithTag("player");
+        Player = GameObject.FindGameObjectWithTag("player");
 
-        player.GetComponent<character_variables>().power = 5;
-        player.GetComponent<character_variables>().health = 5;
-        player.GetComponent<character_variables>().crystals = 0;
+        Player.GetComponent<player_variables>().Power = 5;
+        Player.GetComponent<player_variables>().Health = 5;
+        Player.GetComponent<player_variables>().Crystals = 0;
     }
 }
