@@ -5,33 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class player_interactivity : MonoBehaviour
 {
-    public GameObject player;
-    public bool isdead = false;
+    public GameObject Player;
+    public bool Isdead = false;
 
     public GameObject[] UIs;
 
-    public float respointX;
-    public float respointY;
+    public float RespointX;
+    public float RespointY;
 
-    public GameObject pause;
-    public GameObject viewer;
+    public GameObject Pause;
+    public GameObject Viewer;
 
-    public bool noUI;
+    public bool NoUI;
 
-    public int healthmax = 5;
+    public int Healthmax = 5;
 
-    public GameObject dmgparticle;
+    public GameObject Dmgparticle;
 
-    public GameObject canvas;
+    public GameObject Canvas;
     public GameObject ESystem;
 
-    public int respoint_sceneID;
+    public int Respoint_sceneID;
 
     public  bool OtherScene;
 
     public void Update()
     {
-        if (player.transform.position.y <= -30)
+        if (Player.transform.position.y <= -30)
         {
             ManageDeath("fall");
         }
@@ -41,20 +41,20 @@ public class player_interactivity : MonoBehaviour
             for (int i = 0; i < UIs.Length; i++)
             {
                 UIs[i].active = false;
-                noUI = true;
+                NoUI = true;
             }
 
-            if(noUI = true)
+            if(NoUI = true)
             {
                 pause.active = false;
-                noUI = false;
+                NoUI = false;
             }
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            viewer.active = true;
-            player.GetComponent<player_interactivity>().UI();
+            Viewer.active = true;
+            Player.GetComponent<player_interactivity>().UI();
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -65,57 +65,57 @@ public class player_interactivity : MonoBehaviour
 
     public void UI()
     {
-        noUI = false;
+        NoUI = false;
     }
 
-    public void ManageHealth(bool damage, bool health, int amount)
+    public void ManageHealth(bool Damage, bool Health, int Amount)
     {
-        if(damage == true)
+        if(Damage == true)
         {
-            player.GetComponent<character_variables>().health -= amount;
-            dmgparticle.active = true;
+            player.GetComponent<player_variables>().Health -= Amount;
+            Dmgparticle.active = true;
             Invoke("particle_off", 0.05f);
         }
         else
         {
-            if(health == true)
+            if(Health == true)
             {
-                player.GetComponent<character_variables>().health += amount;
+                player.GetComponent<player_variables>().Health += Amount;
             }
         }
     }
 
-    public void ManageDeath(string type)
+    public void ManageDeath(string Type)
     {
 
         if (OtherScene == true)
         {
-            SceneManager.LoadScene(respoint_sceneID);
+            SceneManager.LoadScene(Respoint_sceneID);
         }
-        player.transform.position = new Vector3(respointX, respointY, 0);
-        Debug.Log(type);
+        Player.transform.position = new Vector3(RespointX, RespointY, 0);
+        Debug.Log(Type);
         
 
-        if(type == "health")
+        if(Type == "health")
         {
-            player.GetComponent<character_variables>().health = healthmax;
+            Player.GetComponent<player_variables>().Health = Healthmax;
         }
     }
 
-    public void quit()
+    public void Quit()
     {
         Application.Quit();
     }
 
-    public void particle_off()
+    public void Particle_off()
     {
-        dmgparticle.active = false;
+        Dmgparticle.active = false;
     }
 
     private void Awake()
     {
-        DontDestroyOnLoad(player);
-        DontDestroyOnLoad(canvas);
+        DontDestroyOnLoad(Player);
+        DontDestroyOnLoad(Canvas);
         DontDestroyOnLoad(ESystem);
         
     }

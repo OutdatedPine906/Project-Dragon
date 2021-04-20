@@ -5,19 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class player_respawn : MonoBehaviour
 {
-    public float xpos;
-    public float ypos;
+    public float Xpos;
+    public float Ypos;
 
-    private int sceneID;
+    private int SceneID;
 
-    public Transform respoint;
-    public GameObject player;
+    public Transform Respoint;
+    public GameObject Player;
 
-    public bool isactive = false;
+    public bool Isactive = false;
 
     
 
-    public GameObject particle;
+    public GameObject Particle;
 
     public bool IsOtherScene;
 
@@ -26,7 +26,7 @@ public class player_respawn : MonoBehaviour
     {
         
 
-        if(SceneManager.GetActiveScene().buildIndex != sceneID)
+        if(SceneManager.GetActiveScene().buildIndex != SceneID)
         {
             IsOtherScene = true;
         }
@@ -39,22 +39,22 @@ public class player_respawn : MonoBehaviour
 
     void OnTriggerEnter2D()
     {
-        if (player.GetComponent<character_variables>().power >= 1)
+        if (Player.GetComponent<player_variables>().Power >= 1)
         {
-            if(isactive == false)
+            if(Isactive == false)
             {
-                player.GetComponent<character_variables>().power -= 1;
-                player.GetComponent<player_interactivity>().ManageHealth(false, true, 1);
+                Player.GetComponent<player_variables>().Power -= 1;
+                Player.GetComponent<player_interactivity>().ManageHealth(false, true, 1);
             }
 
-            player.GetComponent<player_interactivity>().respointX = respoint.position.x;
-            player.GetComponent<player_interactivity>().respointY = respoint.position.y + 2;
-            player.GetComponent<player_interactivity>().respoint_sceneID = sceneID;
-            player.GetComponent<player_interactivity>().OtherScene = IsOtherScene;
+            Player.GetComponent<player_interactivity>().RespointX = Respoint.position.x;
+            Player.GetComponent<player_interactivity>().RespointY = Respoint.position.y + 2;
+            Player.GetComponent<player_interactivity>().Respoint_sceneID = SceneID;
+            Player.GetComponent<player_interactivity>().OtherScene = IsOtherScene;
 
-            isactive = true;
+            Isactive = true;
 
-            particle.active = true;
+            Particle.active = true;
         }
 
         
@@ -65,8 +65,8 @@ public class player_respawn : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("player");
-        sceneID = SceneManager.GetActiveScene().buildIndex;
+        Player = GameObject.FindGameObjectWithTag("player");
+        SceneID = SceneManager.GetActiveScene().buildIndex;
     }
 
     

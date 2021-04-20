@@ -4,56 +4,56 @@ using UnityEngine;
 public class combat_manager : MonoBehaviour
 {
     public Collider2D BoxCollider;
-    public float range;
+    public float Range;
 
-    public LayerMask enemymask;
+    public LayerMask Enemymask;
 
-    public int melee_dmg = 1;
+    public int Melee_dmg = 1;
 
-    public string facing;
-    public GameObject player;
+    public string Facing;
+    public GameObject Player;
 
-    public int attack_wait;
-    public int attack_wait_base;
+    public int Attack_wait;
+    public int Attack_wait_base;
 
     public void Update()
     {
-        facing = player.GetComponent<player_movement>().direction;
+        Facing = Player.GetComponent<player_movement>().Direction;
 
-        if (Input.GetMouseButtonDown(0)&& attack_wait <= 0)
+        if (Input.GetMouseButtonDown(0)&& Attack_wait <= 0)
         {
-            if(facing == "left")
+            if(Facing == "left")
             {
-                RaycastHit2D raycastHit2d = Physics2D.BoxCast(BoxCollider.bounds.center, BoxCollider.bounds.size, 0f, Vector2.left, range, enemymask);
-                if (raycastHit2d != null)
+                RaycastHit2D RaycastHit2d = Physics2D.BoxCast(BoxCollider.bounds.center, BoxCollider.bounds.size, 0f, Vector2.left, Range, Enemymask);
+                if (RaycastHit2d != null)
                 {
-                    raycastHit2d.transform.GetComponent<enemyscript>().takedmg(melee_dmg);
+                    RaycastHit2d.transform.GetComponent<enemyscript>().Takedmg(Melee_dmg);
                 }
             }
 
-            if(facing == "right")
+            if(Facing == "right")
             {
-                RaycastHit2D raycastHit2d = Physics2D.BoxCast(BoxCollider.bounds.center, BoxCollider.bounds.size, 0f, Vector2.right, range, enemymask);
-                if (raycastHit2d != null)
+                RaycastHit2D RaycastHit2d = Physics2D.BoxCast(BoxCollider.bounds.center, BoxCollider.bounds.size, 0f, Vector2.right, Range, Enemymask);
+                if (RaycastHit2d != null)
                 {
-                    raycastHit2d.transform.GetComponent<enemyscript>().takedmg(melee_dmg);
+                    RaycastHit2d.transform.GetComponent<enemyscript>().Takedmg(Melee_dmg);
                 }
             }
 
-            attack_wait = attack_wait_base;
+            Attack_wait = Attack_wait_base;
             InvokeRepeating("minus", 0.0f, 1);
         }
     }
 
     public void Start()
     {
-        facing = player.GetComponent<player_movement>().direction;
+        Facing = Player.GetComponent<player_movement>().Direction;
         
     }
 
-    private void minus()
+    private void Minus()
     {
-       attack_wait--;
+       Attack_wait--;
     }
     
 

@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class player_movement : MonoBehaviour
 {
-    public LayerMask platformlayerMask;
-    public Rigidbody2D rigidbody;
-    public float jumpvel = 10f;
+    public LayerMask PlatformlayerMask;
+    public Rigidbody2D Rigidbody;
+    public float Jumpvel = 10f;
     public BoxCollider2D BoxCollider;
-    public float movespeed = 10f;
-    [SerializeField]private int airjump = 0;
-    public int airjumpmax = 0;
-    public SpriteRenderer renderer;
-    public Color jumpcol;
-    public Color defcol;
-    public float boostvel = 5;
-    public string direction;
-    public bool coyote_time;
-    public float coyote_time_base;
-    public float jumpvel_k;
-    public int respointID;
-    public static int active_respoint;
+    public float Movespeed = 10f;
+    [SerializeField]private int Airjump = 0;
+    public int Airjumpmax = 0;
+    public SpriteRenderer Renderer;
+    public Color Jumpcol;
+    public Color Defcol;
+    public float Boostvel = 5;
+    public string Direction;
+    public bool Coyote_time;
+    public float Coyote_time_base;
+    public float Jumpvel_k;
+    public int RespointID;
+    public static int Active_respoint;
 
 
 
@@ -30,9 +30,9 @@ public class player_movement : MonoBehaviour
         //jumping
         if (IsGrounded())
         {
-            airjump = 0;
-            renderer.color = jumpcol;
-            coyote_time = true;
+            Airjump = 0;
+            Renderer.color = Jumpcol;
+            Coyote_time = true;
             
         }
 
@@ -40,20 +40,20 @@ public class player_movement : MonoBehaviour
         {
             if (IsGrounded())
             {
-                rigidbody.velocity = Vector2.up * jumpvel;
+                Rigidbody.velocity = Vector2.up * Jumpvel;
             }
             else
             {
-                if (IsNotGrounded() && coyote_time == true)
+                if (IsNotGrounded() && Coyote_time == true)
                 {
-                    rigidbody.velocity = Vector2.up * jumpvel;
+                    Rigidbody.velocity = Vector2.up * Jumpvel;
                 }
                 else
                 {
-                    if (airjump < airjumpmax && Input.GetButtonDown("Jump"))
+                    if (Airjump < Airjumpmax && Input.GetButtonDown("Jump"))
                     {
-                        rigidbody.velocity = Vector2.up * jumpvel;
-                        airjump++;
+                        Rigidbody.velocity = Vector2.up * Jumpvel;
+                        Airjump++;
 
                     }
                 }
@@ -62,21 +62,21 @@ public class player_movement : MonoBehaviour
 
         HandleMovement();
 
-        if (airjumpmax >= 1)
+        if (Airjumpmax >= 1)
         {
-            if (airjump == airjumpmax)
+            if (Airjump == Airjumpmax)
             {
-                renderer.color = defcol;
+                Renderer.color = Defcol;
             }
         }
         else
         {
-            renderer.color = jumpcol;
+            Renderer.color = Jumpcol;
         }
 
         if (IsNotGrounded())
         {
-            Invoke("coyote_time_handle", coyote_time_base);
+            Invoke("Coyote_time_handle", Coyote_time_base);
            
         }
 
@@ -84,20 +84,20 @@ public class player_movement : MonoBehaviour
     }
     void Awake()
     {
-        coyote_time_base = 0.15f;
-        jumpvel_k = jumpvel * 0.8f;
+        Coyote_time_base = 0.15f;
+        Jumpvel_k = Jumpvel * 0.8f;
     }
 
     private bool IsGrounded()
     {
-       RaycastHit2D raycastHit2d =  Physics2D.BoxCast(BoxCollider.bounds.center, BoxCollider.bounds.size, 0f, Vector2.down, .1f, platformlayerMask);
-       return raycastHit2d.collider != null;
+       RaycastHit2D RaycastHit2d =  Physics2D.BoxCast(BoxCollider.bounds.center, BoxCollider.bounds.size, 0f, Vector2.down, .1f, PlatformlayerMask);
+       return RaycastHit2d.collider != null;
 
     }
     private bool IsNotGrounded()
     {
-        RaycastHit2D raycastHit2d = Physics2D.BoxCast(BoxCollider.bounds.center, BoxCollider.bounds.size, 0f, Vector2.down, .1f, platformlayerMask);
-        return raycastHit2d.collider == null;
+        RaycastHit2D RaycastHit2d = Physics2D.BoxCast(BoxCollider.bounds.center, BoxCollider.bounds.size, 0f, Vector2.down, .1f, PlatformlayerMask);
+        return RaycastHit2d.collider == null;
 
     }
 
@@ -108,43 +108,43 @@ public class player_movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            rigidbody.velocity = new Vector3(-movespeed, rigidbody.velocity.y);
-            direction = "left";
+            Rigidbody.velocity = new Vector3(-Movespeed, Rigidbody.velocity.y);
+            Direction = "left";
         }
         else
         {
             if (Input.GetKey(KeyCode.D))
             {
-              rigidbody.velocity = new Vector3(+movespeed, rigidbody.velocity.y);
-                direction = "right";
+              Rigidbody.velocity = new Vector3(+Movespeed, Rigidbody.velocity.y);
+                Direction = "right";
             }
             else
             {
                 //no keys pressed
-                rigidbody.velocity = new Vector3(0, rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector3(0, Rigidbody.velocity.y);
             }
         }
         
     }
 
-    public void add()
+    public void Add()
     {
-        airjumpmax += 1;
+        Airjumpmax += 1;
     }
 
-    public void reset()
+    public void Reset()
     {
-        airjump = 0;
+        Airjump = 0;
     }
 
-    public void jump()
+    public void Jump()
     {
-        rigidbody.velocity = Vector2.up * boostvel;
+        Rigidbody.velocity = Vector2.up * Boostvel;
     }
 
-    public void coyote_time_handle()
+    public void Coyote_time_handle()
     {
-        coyote_time = false;
+        Coyote_time = false;
     }
 
    

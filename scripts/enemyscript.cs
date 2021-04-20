@@ -2,35 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyscript : MonoBehaviour
+public class Enemyscript : MonoBehaviour
 {
-    private int health;
-    [SerializeField]private int health_max;
-    public GameObject enemy;
-    public bool isdead;
-    public GameObject player;
+    private int Health;
+    [SerializeField]private int Health_max;
+    public GameObject Enemy;
+    public bool Isdead;
+    public GameObject Player;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = health_max;
-        player = GameObject.FindGameObjectWithTag("player");
+        Health = Health_max;
+        Player = GameObject.FindGameObjectWithTag("player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(health == 0)
+        if(Health == 0)
         {
-            enemy.active = false;
-            isdead = true;
-            player.GetComponent<character_variables>().power += 1;
+            Enemy.active = false;
+            Isdead = true;
+            Player.GetComponent<player_variables>().Power += 1;
 
         }
     }
 
-    public void takedmg(int amount)
+    public void Takedmg(int Amount)
     {
-        health -= amount;
+        Health -= Amount;
     }
 }

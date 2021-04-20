@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class external_health : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject Player;
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D Collision)
     {
 
-        player.GetComponent<player_interactivity>().ManageHealth(true, false, 1);
+        Player.GetComponent<player_interactivity>().ManageHealth(true, false, 1);
     }
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("player");
+        Player = GameObject.FindGameObjectWithTag("player");
     }
 }

@@ -5,16 +5,16 @@ using UnityEngine;
 public class power_door : MonoBehaviour
 {
     public GameObject player;
-    public  int power_required;
+    public  int Power_required;
     public GameObject DoorObj;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(player.GetComponent<character_variables>().power >= power_required)
+        if(player.GetComponent<player_variables>().Power >= Power_required)
         {
             DoorObj.active = false;
-            player.GetComponent<character_variables>().power -= 4;
-            player.GetComponent<transition_manager>().names.Add(DoorObj.name);
+            player.GetComponent<player_variables>().Power -= 4;
+            player.GetComponent<transition_manager>().Names.Add(DoorObj.name);
         }
     }
 

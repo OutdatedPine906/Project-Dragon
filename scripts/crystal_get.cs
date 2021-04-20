@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class crystal_get : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject self;
-    public int amount;
+    public GameObject Player;
+    public GameObject Self;
+    public int Amount;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        player.GetComponent<character_variables>().crystals += amount;
-        player.GetComponent<transition_manager>().names.Add(self.name);
-        self.active = false;
+        Player.GetComponent<player_variables>().Crystals += Amount;
+        Player.GetComponent<transition_manager>().Names.Add(Self.name);
+        Self.active = false;
     }
 
     public void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("player");
+        Player = GameObject.FindGameObjectWithTag("player");
     }
 
 

@@ -3,24 +3,24 @@ using UnityEngine;
 
 public class door : MonoBehaviour
 {
-    [SerializeField]private int sockets;
-    [SerializeField]private int activated_sockets;
-    public GameObject[] activated_socket_array;
-    public GameObject self;
+    [SerializeField]private int Sockets;
+    [SerializeField]private int Activated_sockets;
+    public GameObject[] Activated_socket_array;
+    public GameObject Self;
 
     // Update is called once per frame
     void Update()
     {
-        if(sockets == activated_sockets)
+        if(Sockets == Activated_sockets)
         {
-            self.active = false;
+            Self.active = false;
 
         }
     }
 
-    public void activate_sockets()
+    public void Ativate_sockets()
     {
-        activated_socket_array[0].active = true;
-        activated_sockets += 1;
+        Activated_socket_array[0].active = true;
+        Activated_sockets += 1;
     }
 }
