@@ -1,39 +1,40 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class transition : MonoBehaviour
 {
-    public int target;
-    public bool local;
-    public float warpX;
-    public float warpY;
+    public int Target;
+    public bool Local;
+    public float WarpX;
+    public float WarpY;
 
-    public GameObject player;
-    public GameObject key;
+    public GameObject Player;
+    public GameObject Key;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D Collision)
     {
         
 
-        if(local == true)
+        if(Local == true)
         {
-            player.transform.position = new Vector2(warpX, warpY);
+            Player.transform.position = new Vector2(WarpX, WarpY);
 
         }
         else
         {
-            SceneManager.LoadScene(target);
-            player.transform.position = new Vector2(warpX, warpY);
-            player.GetComponent<transition_manager>().Transition();
+            SceneManager.LoadScene(Target);
+            Player.transform.position = new Vector2(WarpX, WarpY);
+            Player.GetComponent<transition_manager>().Transition();
             
         }
     }
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("player");
+        Player = GameObject.FindGameObjectWithTag("player");
         
     }
 }
+
