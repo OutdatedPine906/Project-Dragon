@@ -1,23 +1,23 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class power : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject self;
-    public int amount;
+    public GameObject Player;
+    public GameObject Self;
+    public int Amount;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        player.GetComponent<transition_manager>().names.Add(self.name);
-        player.GetComponent<character_variables>().power += amount;
-        self.active = false;
+        Player.GetComponent<transition_manager>().Names.Add(Self.name);
+        Player.GetComponent<player_variables>().Power += Amount;
+        Self.active = false;
     }
 
     public void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("player");
-        amount = Random.RandomRange(1, 3);
+        Player = GameObject.FindGameObjectWithTag("player");
+        Amount = Random.RandomRange(1, 3);
     }
 }
