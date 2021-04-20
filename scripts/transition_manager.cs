@@ -1,14 +1,14 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 public class transition_manager : MonoBehaviour
 {
-    public List<string> names = new List<string>();
-    public List<GameObject> gameObjects = new List<GameObject>();
-    public List<string> used_names = new List<string>();
-    public List<GameObject> used = new List<GameObject>();
+    public List<string> Names = new List<string>();
+    public List<GameObject> GameObjects = new List<GameObject>();
+    public List<string> Used_names = new List<string>();
+    public List<GameObject> Used = new List<GameObject>();
 
 
 
@@ -19,9 +19,9 @@ public class transition_manager : MonoBehaviour
             GameObject.Destroy(gameObjects[i]);
         }
 
-        for (int i = 0; i < used.ToArray().Length; i++)
+        for (int i = 0; i < Used.ToArray().Length; i++)
         {
-            used[i].GetComponent<DBJ_add>().used = true;
+            Used[i].GetComponent<dbj_add>().Used = true;
         }
     }
 
@@ -37,12 +37,12 @@ public class transition_manager : MonoBehaviour
 
         }
 
-        for (int i = 0; i < used_names.ToArray().Length; i++)
+        for (int i = 0; i < Used_names.ToArray().Length; i++)
         {
 
-            if (GameObject.Find(used_names[i]) != null)
+            if (GameObject.Find(Used_names[i]) != null)
             {
-                used.Add(GameObject.Find(used_names[i]));
+                Used.Add(GameObject.Find(Used_names[i]));
             }
 
         }
