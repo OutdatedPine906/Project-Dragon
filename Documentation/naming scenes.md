@@ -1,7 +1,7 @@
 # How to name unity scenes
 ## Do you need a new scene?
 If your scene is small and is not entered 
-by __joystick left/up__ you should **not** maka new scene
+by _joystick left/up_ you should **not** make a new scene
 unless the new room is deemed incompatible with the environment.
 ## naming your scene
 Your scene names use the following syntax:
