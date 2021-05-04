@@ -7,7 +7,10 @@ public class heal : MonoBehaviour
     public GameObject player;
     public GameObject self;
 
-     void OnTriggerEnter2D(Collider2D collision)
+    //<summary>
+    // increases player health by a random number
+    //</summary>
+    void OnTriggerEnter2D(Collider2D collision)
     {
         player = GameObject.FindGameObjectWithTag("player");
         player.GetComponent<transition_manager>().names.Add(self.name);

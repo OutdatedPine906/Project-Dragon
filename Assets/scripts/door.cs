@@ -8,7 +8,9 @@ public class door : MonoBehaviour
     public GameObject[] activated_socket_array;
     public GameObject self;
 
-    // Update is called once per frame
+    //<summary>
+    // self-destructs if all sockets are activateed
+    //</summary>
     void Update()
     {
         if(sockets == activated_sockets)
@@ -18,6 +20,9 @@ public class door : MonoBehaviour
         }
     }
 
+    //<summary>
+    // increases number of activated sockets depending on array 
+    //</summary>
     public void activate_sockets()
     {
         activated_socket_array[0].active = true;

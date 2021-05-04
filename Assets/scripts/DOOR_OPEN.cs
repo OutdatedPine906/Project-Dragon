@@ -10,8 +10,10 @@ public class DOOR_OPEN : MonoBehaviour
 
     public static List<GameObject> objects = new List<GameObject>();
 
-    
 
+    //<summary>
+    //deactivate door
+    //</summary>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         player = GameObject.FindGameObjectWithTag("player");

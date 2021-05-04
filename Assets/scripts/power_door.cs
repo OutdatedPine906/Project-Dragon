@@ -8,6 +8,9 @@ public class power_door : MonoBehaviour
     public  int power_required;
     public GameObject DoorObj;
 
+    //<summary>
+    // lets player pass door if it has enough power and disables door
+    //</summary>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(player.GetComponent<character_variables>().power >= power_required)

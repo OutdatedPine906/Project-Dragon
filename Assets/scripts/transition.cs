@@ -13,6 +13,9 @@ public class transition : MonoBehaviour
     public GameObject player;
     public GameObject key;
 
+    //<summary>
+    // moves player to correct scene and position
+    //</summary>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         

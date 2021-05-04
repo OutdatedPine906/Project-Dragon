@@ -32,10 +32,6 @@ public class player_interactivity : MonoBehaviour
 
     public  bool OtherScene;
 
-    
-
-
-
     public void Update()
     {
         if (player.transform.position.y <= -30)
@@ -77,6 +73,9 @@ public class player_interactivity : MonoBehaviour
         noUI = false;
     }
 
+    //<summary>
+    // adjusts player health depending on damage and health gain
+    //</summary>
     public void ManageHealth(bool damage, bool health, int amount)
     {
         if(damage == true)
@@ -94,6 +93,9 @@ public class player_interactivity : MonoBehaviour
         }
     }
 
+    //<summary>
+    // returns player to respoint and maxes health at death
+    //</summary>
     public void ManageDeath(string type)
     {
 

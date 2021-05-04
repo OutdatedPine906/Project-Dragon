@@ -6,6 +6,9 @@ public class external_health : MonoBehaviour
 {
     public GameObject player;
 
+    //<summary>
+    // decreases player health by 1
+    //</summary>
     void OnTriggerEnter2D(Collider2D collision)
     {
 

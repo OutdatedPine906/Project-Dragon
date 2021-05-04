@@ -17,7 +17,9 @@ public class enemyscript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("player");
     }
 
-    // Update is called once per frame
+    //<summary>
+    // destroys enemies that ran out of health and increases player power
+    //</summary>
     void Update()
     {
         if(health == 0)
@@ -29,6 +31,9 @@ public class enemyscript : MonoBehaviour
         }
     }
 
+    //<summary>
+    // decreases enemy healthy by damage
+    //</summary>
     public void takedmg(int amount)
     {
         health -= amount;

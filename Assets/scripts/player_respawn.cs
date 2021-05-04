@@ -36,7 +36,9 @@ public class player_respawn : MonoBehaviour
         }
     }
 
-
+    //<summary>
+    // sets variables for respawn
+    //</summary>
     void OnTriggerEnter2D()
     {
         if (player.GetComponent<character_variables>().power >= 1)

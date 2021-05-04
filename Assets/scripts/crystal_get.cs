@@ -8,6 +8,9 @@ public class crystal_get : MonoBehaviour
     public GameObject self;
     public int amount;
 
+    //<summary>
+    // increases player crystals
+    //</summary>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         player.GetComponent<character_variables>().crystals += amount;

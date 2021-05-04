@@ -31,7 +31,9 @@ public class player_movement : MonoBehaviour
     public bool Fly = false;
 
 
-    // Update is called once per frame
+    //<summary>
+    // handles vertical and horizontal player movement
+    //</summary>
     void Update()
     {
         HandleMovement();
@@ -96,6 +98,7 @@ public class player_movement : MonoBehaviour
             HandleFly();
         }
     }
+
     void Awake()
     {
         coyote_time_base = 0.15f;
@@ -107,6 +110,9 @@ public class player_movement : MonoBehaviour
         controls.movement.fly.canceled += ctx => FlyMove = 0;
     }
 
+    //<summary>
+    // returns whether player is on the ground or not
+    //</summary>
     private bool IsGrounded()
     {
        RaycastHit2D raycastHit2d =  Physics2D.BoxCast(BoxCollider.bounds.center, BoxCollider.bounds.size, 0f, Vector2.down, .1f, platformlayerMask);
@@ -120,7 +126,9 @@ public class player_movement : MonoBehaviour
 
     }
 
-    //movement
+    //<summary>
+    // moves player left or right depending on move value
+    //</summary>
     public void HandleMovement()
     {
        
@@ -146,6 +154,9 @@ public class player_movement : MonoBehaviour
         
     }
 
+    //<summary>
+    // moves player up and down depending on FlyMove value
+    //</summary>
     void HandleFly()
     {
         if (FlyMove > 0)

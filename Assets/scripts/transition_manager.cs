@@ -10,8 +10,6 @@ public class transition_manager : MonoBehaviour
     public List<string> used_names = new List<string>();
     public List<GameObject> used = new List<GameObject>();
 
-
-
     public void Transition()
     {
         for (int i = 0; i < gameObjects.ToArray().Length; i++)
@@ -25,6 +23,9 @@ public class transition_manager : MonoBehaviour
         }
     }
 
+    //<summary>
+    // gives the player infinite health
+    //</summary>
     private void Update()
     {
         for (int i = 0; i < names.ToArray().Length; i++)

@@ -8,6 +8,9 @@ public class power : MonoBehaviour
     public GameObject self;
     public int amount;
 
+    //<summary>
+    // gives the player power before deactivating
+    //</summary>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         player.GetComponent<transition_manager>().names.Add(self.name);

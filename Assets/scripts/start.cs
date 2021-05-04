@@ -6,6 +6,9 @@ public class start : MonoBehaviour
 {
     public GameObject player;
 
+    //<summary>
+    // sets player game object and assigns default variables
+    //</summary>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         player = GameObject.FindGameObjectWithTag("player");
