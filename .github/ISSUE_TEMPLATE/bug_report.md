@@ -2,10 +2,13 @@
 name: Bug report
 about: Create a report to help us improve
 title: ''
-labels: ''
+labels: Review, bug
 assignees: ''
 
 ---
+
+**IMPORTANT:**
+**This is not the place to request features. If you want to do so, please visit our forums. Do not post feature requests unless permitted.**
 
 **Describe the bug**
 A clear and concise description of what the bug is.
