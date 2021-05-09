@@ -30,7 +30,8 @@ public class transition : MonoBehaviour
             SceneManager.LoadScene(target);
             player.transform.position = new Vector2(warpX, warpY);
             player.GetComponent<transition_manager>().Transition();
-            
+            player.GetComponent<player_interactivity>().respointX = warpX;
+            player.GetComponent<player_interactivity>().respointY = warpY;
         }
     }
 
